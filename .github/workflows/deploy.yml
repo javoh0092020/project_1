@@ -1,0 +1,17 @@
+name : Deploy Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on:ubuntu-latest
+
+    steps:
+      - name: Check code
+        uses: actions/chaeckout@v4
+
+      - name: Build Docker Image
+        run: docker build -t my-devopst-project .
